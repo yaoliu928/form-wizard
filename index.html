@@ -11,28 +11,42 @@
 </head>
 
 <body>
-  <div class="bar">
-    <div class="bar--finished">Step 1</div>
-  </div>
-  <div class="form">
-    <input placeholder="First name..." required oninput="this.className = ''">
-    <input placeholder="Last name..." required oninput="this.className = ''">
-    <input placeholder="E-mail..." required oninput="this.className = ''">
-    <input placeholder="Phone..." required oninput="this.className = ''">
-  </div>
-  <div class="form">
-    <input placeholder="Street number..." required oninput="this.className = ''">
-    <input placeholder="Street name..." required oninput="this.className = ''">
-    <input placeholder="Street type..." required oninput="this.className = ''">
-    <input placeholder="Suburb..." required oninput="this.className = ''">
-    <input placeholder="Postcode..." required oninput="this.className = ''">
+  <form class="form-wrapper">
+    <div class="bar">
+      <div class="bar--completed">Completed</div>
+    </div>
+    <div class="form">
+      <input id="first-name" placeholder="First name..." required class="first-name">
+      <input id="last-name" placeholder="Last name..." required>
+      <input id="email" placeholder="Email..." required>
+      <input id="phone" placeholder="Phone..." required>
+    </div>
+    <div class="form">
+      <input id="street-number" placeholder="Street Number..." required>
+      <input id="street-name" placeholder="Street Name..." required>
+      <input id="street-type" placeholder="Street Type..." required>
+      <input id="suburb" placeholder="Suburb..." required>
+      <input id="postcode" placeholder="Postcode..." required>
+    </div>
+    <div class="btn-wrapper">
+      <button type="button" class="btn--prev">Previous</button>
+      <button type="button" class="btn--next">Next</button>
+    </div>
+  </form>
+  <div class="data">
+    <ul>
+      <li>First name: <span class="first-name" ></span></li>
+      <li>Last name: <span class="last-name"></span></li>
+      <li>Email: <span class="email"></span></li>
+      <li>Phone: <span class="phone"></span></li>
+      <li>Street Number: <span class="street-number"></span></li>
+      <li>Street Name: <span class="street-name"></span></li>
+      <li>Street Type: <span class="street-type"></span></li>
+      <li>Suburb: <span class="suburb"></span></li>
+      <li>Postcode: <span class="postcode"></span></li>
+    </ul>
   </div>
 
-  <div class="btn-wrapper">
-    <button type="button" class="btn--prev" >Previous</button>
-    <button type="button" class="btn--next" >Next</button>
-  </div>
-  
 </body>
 
 </html>
