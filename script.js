@@ -9,7 +9,6 @@ const inputValue = document.getElementsByTagName('input');
 const stTypeValue = document.getElementById('street-type');
 const resultItems = document.getElementsByClassName('result__item');
 const stTypeResult = document.querySelector('.result__item--select');
-
 showForm(currentForm);
 function showForm(num) {
   //show current form
@@ -26,15 +25,22 @@ function showForm(num) {
     nextBtn.innerHTML = "Next";
   }
   //show progress bar;
-  const percent = Math.floor((num + 1) * 100 / forms.length);
-  completedBar.style.width = `${percent}%`;
-  completedBar.innerHTML = `${percent}%`;
+  if (!currentForm) {
+    completedBar.style.width = '5%';
+    completedBar.innerHTML = ``;
+  } else {
+    const percent = Math.floor(currentForm * 100 / forms.length);
+    completedBar.style.width = `${percent}%`;
+    completedBar.innerHTML = `${percent}%`;
+  }
+  prevBtn.addEventListener('click', () => nextPrev(-1));
+  nextBtn.addEventListener('click', () => nextPrev(1));
 }
-
 function nextPrev(num) {
   // 当前页有 invalidate
-  if (num === 1 && !isFormValid())
+  if (num === 1 && !isFormValid()) {
     return false;
+  } 
   //不显示当前页，更新页码，显示下一页
   forms[currentForm].style.display = "none";
   currentForm += num;
@@ -43,6 +49,8 @@ function nextPrev(num) {
     //删除表格，显示结果
     form.style.display = "none";
     result.style.display = 'block';
+    completedBar.style.width = `100%`;
+    completedBar.innerHTML = `100%`;
     //赋予结果数据
     for (let i = 0; i < inputValue.length; i++) {
       const info = inputValue[i].value;
@@ -109,7 +117,7 @@ function isPhoneValid(value) {
   return value === '' || phoneFormat.test(value);
 }
 function isPostcodeValid(value) {
-  return /^\+?([1-9]\d*)$/.test(value) && value >= 800 && value <= 7999;
+  return /^[0-9]+$/.test(value) && value >= 800 && value <= 7999;
 }
 function isStreetNumValid(value) {
   return /^\+?([1-9]\d*)$/.test(value);

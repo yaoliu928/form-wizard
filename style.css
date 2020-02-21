@@ -1,7 +1,9 @@
+
 .bar {
   width: 60%;
   max-width: 193px;
   background-color: lightgrey;
+  border-radius: 0 15px 15px 0;
 }
 .bar--completed {
   /* width: 50%; */
@@ -9,6 +11,8 @@
   background-color: lightgreen;
   color: black;
   text-align: center;
+  height: 20px;
+  border-radius: 0 15px 15px 0;
 }
 .form {
   margin: 10px 0;
@@ -40,9 +44,7 @@ input::-webkit-input-placeholder{
   font-size: 16px;
 }
 .result {
-  width: 50%;
-  margin: 20px auto;
-  background: lightyellow;
+  /* background: lightyellow; */
   color: grey;
 }
 .result ul {
