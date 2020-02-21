@@ -57,7 +57,7 @@ input::-webkit-input-placeholder{
   margin-left: 15px;
   font-weight: 600;
 }
-.notice,.notice-select{
+.notice,.notice--select{
   display: none;
   font-style: italic;
   font-weight: 200;

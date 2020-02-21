@@ -56,21 +56,26 @@ function nextPrev(num) {
 function isFormValid() {
   let valid = true;
   const shownForm = forms[currentForm];
-  console.log(shownForm);
   const shownInputs = shownForm.getElementsByTagName('input');
   const shownSpans = shownForm.getElementsByClassName('notice');
   for (let i = 0; i < shownInputs.length; i++) {
     if (!isFormatValid(shownInputs[i])) {
       shownSpans[i].style.display = 'inline';
       valid = false;
+    } else {
+      shownSpans[i].style.display = 'none';
     }
   }
   if (currentForm) {
-    const shownSelect = shownForm.getElementById('street-type');
+    const shownSelect = document.getElementById('street-type');
+    console.log(shownForm);
     const shownSelectSpan = shownForm.querySelector('.notice--select');
+    console.log(shownSelectSpan);
     if (shownSelect.value === '') {
       shownSelectSpan.style.display = 'inline';
       valid = false;
+    } else {
+      shownSelectSpan.style.display = 'none';
     }
   }
   //只要有一个 valid=false 就 return false
@@ -86,7 +91,10 @@ function isFormatValid(input) {
       return isPostcodeValid(input.value);
     case 'street-number':
       return isStreetNumValid(input.value);
-    case 'first-name' || 'last-name' || 'street-name' || 'suburb':
+    case 'first-name':
+    case 'last-name':
+    case 'street-name':
+    case 'suburb':
       return isTextValid(input.value);
     default:
       return true;
@@ -101,14 +109,13 @@ function isPhoneValid(value) {
   return value === '' || phoneFormat.test(value);
 }
 function isPostcodeValid(value) {
-  const postcode = parseInt(value, 10);
-  return (postcode >= 800 && postcode <= 7999);
+  return /^\+?([1-9]\d*)$/.test(value) && value >= 800 && value <= 7999;
 }
 function isStreetNumValid(value) {
   return /^\+?([1-9]\d*)$/.test(value);
 }
 function isTextValid(value) {
-  return /^[a-zA-Z]+$/.test(value);
+  return /^([a-zA-Z]+\s?)*$/.test(value) && value !== '';
 }
 
 
