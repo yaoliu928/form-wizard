@@ -17,19 +17,25 @@
     </div>
     <div class="form">
         <label for="first-name">First name :</label><br>
-      <input type="text" id="first-name" placeholder="First name..." required><br>
+      <input type="text" id="first-name" name="first-name" placeholder="required" >
+      <span class="notice">*Please input valid name...</span><br>
       <label for="last-name">Last name :</label><br>
-      <input type="text" id="last-name" placeholder="Last name..." required><br>
+      <input type="text" id="last-name" name="last-name" placeholder="required" >
+      <span class="notice">*Please input valid name...</span><br>
       <label for="email">Email :</label><br>
-      <input type="email" id="email" placeholder="Email..." required><br>
+      <input type="email" id="email" name="email" placeholder="required" >
+      <span class="notice">*Please input valid email...</span><br>
       <label for="phone">Phone :</label><br>
-      <input type="number" id="phone" placeholder="Phone..." required><br>
+      <input type="number" id="phone" name="phone" placeholder="optional" >
+      <span class="notice">*Please input valid phone number...</span><br>
     </div>
     <div class="form">
         <label for="street-number">Street number :</label><br>
-      <input type="text" id="street-number" placeholder="Street number..." required><br>
+      <input type="text" id="street-number" name="street-number" placeholder="required" >
+      <span class="notice">*Please input valid street number...</span><br>
       <label for="street-name">Street name :</label><br>
-      <input type="text" id="street-name" placeholder="Street name..." required><br>
+      <input type="text" id="street-name" name="street-name" placeholder="required" >
+      <span class="notice">*Please input valid street name...</span><br>
       <label for="street-type">Street type :</label>
       <select id="street-type">
         <option value="" disable hidden selected>Please choose...</option>
@@ -38,15 +44,18 @@
         <option value="St">St</option>
         <option value="PI">PI</option>
         <option value="Ave">Ave</option>
-      </select><br><br>
+      </select>
+      <span class="notice-select">*Please choose a street type...</span><br><br>
       <label for="suburb">Suburb :</label><br>
-      <input type="text" id="suburb" placeholder="Suburb..." required><br>
+      <input type="text" id="suburb" name="suburb" placeholder="required" >
+      <span class="notice">*Please input valid suburb...</span><br>
       <label for="postcode">Postcode :</label><br>
-      <input type="text" id="postcode" placeholder="Postcode..." required><br>
+      <input type="text" id="postcode" name="postcode" placeholder="required" >
+      <span class="notice">*Please input valid postcode...</span>
     </div>
     <div class="btn-wrapper">
-      <button type="button" class="btn--prev">Previous</button>
-      <button type="button" class="btn--next">Next</button>
+      <button type="button" class="btn--prev" onclick="nextPrev(-1)">Previous</button>
+      <button type="button" class="btn--next" onclick="nextPrev(1)">Next</button>
     </div>
   </form>
   <div class="result">
