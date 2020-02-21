@@ -1,14 +1,13 @@
 .bar {
   width: 60%;
   max-width: 193px;
-  margin: 0 auto;
-  background-color: grey;
+  background-color: lightgrey;
 }
 .bar--completed {
   /* width: 50%; */
   padding: 5px 0;
-  background-color: green;
-  color: white;
+  background-color: lightgreen;
+  color: black;
   text-align: center;
 }
 .form {
@@ -16,31 +15,33 @@
   width: 100%;
 }
 input {
-  display: block;
   padding: 10px;
   margin: 10px auto;
   font-size: 16px;
   border: 1px solid #aaa;
 }
-.form,.data {
+.form,.result {
   display: none;
-}
-.btn-wrapper {
-  display: flex;
-  justify-content: center;
 }
 .btn-wrapper button {
   margin: 5px;
   font-size: 16px;
 }
-.data {
+.result {
   width: 50%;
   margin: 20px auto;
+  background: lightyellow;
+  color: grey;
 }
-.data ul {
+.result ul {
   list-style-type: none;
 }
-.data ul li {
+.result ul li {
   font-size: 16px;
-  padding: 5px;
+  padding: 10px 0;
+}
+.result ul li span{
+  display: inline-block;
+  margin-left: 15px;
+  font-weight: 600;
 }

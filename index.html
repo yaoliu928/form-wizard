@@ -13,37 +13,54 @@
 <body>
   <form class="form-wrapper">
     <div class="bar">
-      <div class="bar--completed">Completed</div>
+      <div class="bar--completed"></div>
     </div>
     <div class="form">
-      <input id="first-name" placeholder="First name..." required class="first-name">
-      <input id="last-name" placeholder="Last name..." required>
-      <input id="email" placeholder="Email..." required>
-      <input id="phone" placeholder="Phone..." required>
+        <label for="first-name">First name :</label><br>
+      <input type="text" id="first-name" placeholder="First name..." required><br>
+      <label for="last-name">Last name :</label><br>
+      <input type="text" id="last-name" placeholder="Last name..." required><br>
+      <label for="email">Email :</label><br>
+      <input type="email" id="email" placeholder="Email..." required><br>
+      <label for="phone">Phone :</label><br>
+      <input type="number" id="phone" placeholder="Phone..." required><br>
     </div>
     <div class="form">
-      <input id="street-number" placeholder="Street Number..." required>
-      <input id="street-name" placeholder="Street Name..." required>
-      <input id="street-type" placeholder="Street Type..." required>
-      <input id="suburb" placeholder="Suburb..." required>
-      <input id="postcode" placeholder="Postcode..." required>
+        <label for="street-number">Street number :</label><br>
+      <input type="text" id="street-number" placeholder="Street number..." required><br>
+      <label for="street-name">Street name :</label><br>
+      <input type="text" id="street-name" placeholder="Street name..." required><br>
+      <label for="street-type">Street type :</label>
+      <select id="street-type">
+        <option value="" disable hidden selected>Please choose...</option>
+        <option value="CI">CI</option>
+        <option value="Ct">Ct</option>
+        <option value="St">St</option>
+        <option value="PI">PI</option>
+        <option value="Ave">Ave</option>
+      </select><br><br>
+      <label for="suburb">Suburb :</label><br>
+      <input type="text" id="suburb" placeholder="Suburb..." required><br>
+      <label for="postcode">Postcode :</label><br>
+      <input type="text" id="postcode" placeholder="Postcode..." required><br>
     </div>
     <div class="btn-wrapper">
       <button type="button" class="btn--prev">Previous</button>
       <button type="button" class="btn--next">Next</button>
     </div>
   </form>
-  <div class="data">
+  <div class="result">
+    <h2>Result:</h2>
     <ul>
-      <li>First name: <span class="first-name" ></span></li>
-      <li>Last name: <span class="last-name"></span></li>
-      <li>Email: <span class="email"></span></li>
-      <li>Phone: <span class="phone"></span></li>
-      <li>Street Number: <span class="street-number"></span></li>
-      <li>Street Name: <span class="street-name"></span></li>
-      <li>Street Type: <span class="street-type"></span></li>
-      <li>Suburb: <span class="suburb"></span></li>
-      <li>Postcode: <span class="postcode"></span></li>
+      <li>First name: <span class="result__item"></span></li>
+      <li>Last name: <span class="result__item"></span></li>
+      <li>Email: <span class="result__item"></span></li>
+      <li>Phone: <span class="result__item"></span></li>
+      <li>Street Number: <span class="result__item"></span></li>
+      <li>Street Name: <span class="result__item"></span></li>
+      <li>Street Type: <span class="result__item--select"></span></li>
+      <li>Suburb: <span class="result__item"></span></li>
+      <li>Postcode: <span class="result__item"></span></li>
     </ul>
   </div>
 
