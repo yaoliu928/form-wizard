@@ -9,93 +9,35 @@ const inputValue = document.getElementsByTagName('input');
 const stTypeValue = document.getElementById('street-type');
 const resultItems = document.getElementsByClassName('result__item');
 const stTypeResult = document.querySelector('.result__item--select');
+
 initial();
 
 function initial() {
-  prevBtn.addEventListener('click', () => nextPrev(-1));
-  nextBtn.addEventListener('click', () => nextPrev(1));
+  bindEvent();
   showForm(currentForm);
 }
-
 function showForm(num) {
-  //show current form
   forms[num].style.display = 'block';
-  // show button
-  if (!num) {
-    prevBtn.style.display = "none";
-  } else {
-    prevBtn.style.display = "inline";
-  }
-  if (num === forms.length - 1) {
-    nextBtn.innerHTML = "Submit";
-  } else {
-    nextBtn.innerHTML = "Next";
-  }
-  //show progress bar;
-  if (!currentForm) {
-    completedBar.style.width = '5%';
-    completedBar.innerHTML = '';
-  } else {
-    const percent = Math.floor(currentForm * 100 / forms.length);
-    completedBar.style.width = `${percent}%`;
-    completedBar.innerHTML = `${percent}%`;
-  }
+  showButton(num);
+  showProgressBar();
 }
 function nextPrev(num) {
-  // 当前页有 invalidate
   if (num === 1 && !isFormValid()) {
     return false;
   }
-  //不显示当前页，更新页码，显示下一页
-  forms[currentForm].style.display = "none";
+  forms[currentForm].style.display = 'none';
   currentForm += num;
-  // 当前页为最后一页时
   if (currentForm === forms.length) {
-    //赋予结果数据
-    for (let i = 0; i < inputValue.length; i++) {
-      const info = inputValue[i].value;
-      resultItems[i].innerHTML = info;
-    }
-    stTypeResult.innerHTML = stTypeValue.value;
-    //解绑event listener
-    prevBtn.removeEventListener('click', () => nextPrev(-1));
-    nextBtn.removeEventListener('click', () => nextPrev(1));
-    //删除表格，显示结果
-    form.style.display = "none";
-    result.style.display = 'block';
-    completedBar.style.width = `100%`;
-    completedBar.innerHTML = `100%`;
-    return false;
+    submitForm();
   }
   showForm(currentForm);
 }
 function isFormValid() {
-  let valid = true;
+  const valid = true;
   const shownForm = forms[currentForm];
-  const shownInputs = shownForm.getElementsByTagName('input');
-  const shownNotice = shownForm.getElementsByClassName('notice');
-  for (let i = 0; i < shownInputs.length; i++) {
-    if (!isFormatValid(shownInputs[i])) {
-      shownNotice[i].style.display = 'block';
-      shownInputs[i].style.background = 'lightpink';
-      valid = false;
-    } else {
-      shownNotice[i].style.display = 'none';
-      shownInputs[i].style.background = 'white';
-    }
-  }
-  if (currentForm) {
-    const shownSelect = document.getElementById('street-type');
-    const shownSelectSpan = shownForm.querySelector('.notice--select');
-    if (shownSelect.value === '') {
-      shownSelectSpan.style.display = 'block';
-      valid = false;
-    } else {
-      shownSelectSpan.style.display = 'none';
-    }
-  }
-  //只要有一个 valid=false 就 return false
-  return valid;
+  const isInputValid = checkInputFormat(shownForm, valid);
+  const isValid = checkSelectFormat(shownForm, isInputValid);
+  return isValid;
 }
 function isFormatValid(input) {
   switch (input.name) {
@@ -132,4 +74,78 @@ function isStreetNumValid(value) {
 }
 function isTextValid(value) {
   return /^([a-zA-Z]+\s?)+$/.test(value);
+}
+function showButton(num) {
+  if (!num) {
+    prevBtn.style.display = 'none';
+  } else {
+    prevBtn.style.display = 'inline';
+  }
+  if (num === forms.length - 1) {
+    nextBtn.innerHTML = 'Submit';
+  } else {
+    nextBtn.innerHTML = 'Next';
+  }
+}
+function showProgressBar() {
+  if (!currentForm) {
+    completedBar.style.width = '5%';
+    completedBar.innerHTML = '';
+  } else {
+    const percent = Math.floor(currentForm * 100 / forms.length);
+    completedBar.style.width = `${percent}%`;
+    completedBar.innerHTML = `${percent}%`;
+  }
+}
+function submitForm() {
+  for (let i = 0; i < inputValue.length; i++) {
+    const info = inputValue[i].value;
+    resultItems[i].innerHTML = info;
+  }
+  stTypeResult.innerHTML = stTypeValue.value;
+  unBindEvent();
+  showResult();
+  return false;
+}
+function showResult() {
+  form.style.display = 'none';
+  result.style.display = 'block';
+  completedBar.style.width = '100%';
+  completedBar.innerHTML = '100%';
+}
+function bindEvent() {
+  prevBtn.addEventListener('click', () => nextPrev(-1));
+  nextBtn.addEventListener('click', () => nextPrev(1));
+}
+function unBindEvent() {
+  prevBtn.removeEventListener('click', () => nextPrev(-1));
+  nextBtn.removeEventListener('click', () => nextPrev(1));
+}
+function checkInputFormat(shownForm, valid) {
+  const shownInputs = shownForm.getElementsByTagName('input');
+  const shownNotice = shownForm.getElementsByClassName('notice');
+  for (let i = 0; i < shownInputs.length; i++) {
+    if (!isFormatValid(shownInputs[i])) {
+      shownNotice[i].style.display = 'block';
+      shownInputs[i].style.background = 'lightpink';
+      valid = false;
+    } else {
+      shownNotice[i].style.display = 'none';
+      shownInputs[i].style.background = 'white';
+    }
+  }
+  return valid;
+}
+function checkSelectFormat(shownForm, valid) {
+  if (currentForm) {
+    const shownSelect = document.getElementById('street-type');
+    const shownSelectNotice = shownForm.querySelector('.notice--select');
+    if (shownSelect.value === '') {
+      shownSelectNotice.style.display = 'block';
+      valid = false;
+    } else {
+      shownSelectNotice.style.display = 'none';
+    }
+  }
+  return valid;
 }
