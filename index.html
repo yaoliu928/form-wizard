@@ -11,32 +11,37 @@
 </head>
 
 <body>
+  <div class="container">
+
+  </div>
   <div class="bar">
     <div class="bar--completed"></div>
   </div>
-  <form class="form-wrapper">
 
+  <form class="form-wrapper">
     <div class="form">
+      <h1>Personal Info:</h1>
       <label for="first-name">First name :</label><br>
-      <input type="text" id="first-name" name="first-name" placeholder="required">
-      <span class="notice">*Please input valid name...</span><br>
+      <input type="text" id="first-name" name="first-name" placeholder="required ">
+      <p class="notice">*Please input a valid name...</p>
       <label for="last-name">Last name :</label><br>
-      <input type="text" id="last-name" name="last-name" placeholder="required">
-      <span class="notice">*Please input valid name...</span><br>
+      <input type="text" id="last-name" name="last-name" placeholder="required ">
+      <p class="notice">*Please input a valid name...</p>
       <label for="email">Email :</label><br>
-      <input type="email" id="email" name="email" placeholder="required">
-      <span class="notice">*Please input valid email...</span><br>
+      <input type="email" id="email" name="email" placeholder="required ">
+      <p class="notice">*Please input a valid email...</p>
       <label for="phone">Phone :</label><br>
-      <input type="number" id="phone" name="phone" placeholder="optional">
-      <span class="notice">*Please input valid phone number...</span><br>
+      <input type="text" id="phone" name="phone" placeholder="ie. 0xxx xxx xxx">
+      <p class="notice">*Please follow the format: 0xxx xxx xxx</p>
     </div>
     <div class="form">
+      <h1>Address Info:</h1>
       <label for="street-number">Street number :</label><br>
-      <input type="number" id="street-number" name="street-number" placeholder="required">
-      <span class="notice">*Please input valid street number...</span><br>
+      <input type="number" id="street-number" name="street-number" placeholder="required ">
+      <p class="notice">*Please input a valid street number...</p>
       <label for="street-name">Street name :</label><br>
-      <input type="text" id="street-name" name="street-name" placeholder="required">
-      <span class="notice">*Please input valid street name...</span><br>
+      <input type="text" id="street-name" name="street-name" placeholder="required ">
+      <p class="notice">*Please input a valid street name...</p>
       <label for="street-type">Street type :</label>
       <select id="street-type">
         <option value="" disable hidden selected>Please choose...</option>
@@ -45,24 +50,25 @@
         <option value="St">St</option>
         <option value="PI">PI</option>
         <option value="Ave">Ave</option>
-      </select>
-      <span class="notice--select">*Please choose a street type...</span><br><br>
+      </select><br>
+      <p class="notice--select">*Please choose a street type...</p>
       <label for="suburb">Suburb :</label><br>
-      <input type="text" id="suburb" name="suburb" placeholder="required">
-      <span class="notice">*Please input valid suburb...</span><br>
+      <input type="text" id="suburb" name="suburb" placeholder="required ">
+      <p class="notice">*Please input a valid suburb...</p>
       <label for="postcode">Postcode :</label><br>
-      <input type="number" id="postcode" name="postcode" placeholder="required">
-      <span class="notice">*Please input valid postcode...</span>
+      <input type="number" id="postcode" name="postcode" placeholder="required ">
+      <p class="notice">*Please input a valid postcode... (ie. 0800-7999)</p>
     </div>
     <div class="btn-wrapper">
       <button type="button" class="btn--prev">Previous</button>
       <button type="button" class="btn--next">Next</button>
     </div>
   </form>
+
   <div class="result">
-    <h2>Result:</h2>
+    <h1>Result:</h1>
     <ul>
-      <li>First name: <span class="result__item"></span></li>
+      <li>First name: <span class="result__item">sssssnjiouh</span></li>
       <li>Last name: <span class="result__item"></span></li>
       <li>Email: <span class="result__item"></span></li>
       <li>Phone: <span class="result__item"></span></li>
@@ -73,7 +79,6 @@
       <li>Postcode: <span class="result__item"></span></li>
     </ul>
   </div>
-
 </body>
 
 </html>

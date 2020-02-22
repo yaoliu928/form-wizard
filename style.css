@@ -1,28 +1,35 @@
-
+body{
+  margin: 0 auto;
+  max-width: 1200px; 
+}
 .bar {
+  margin: 30px auto;
   width: 60%;
-  max-width: 193px;
   background-color: lightgrey;
   border-radius: 0 15px 15px 0;
 }
 .bar--completed {
-  /* width: 50%; */
+  border-radius: 0 15px 15px 0;
+  height: 20px;
   padding: 5px 0;
   background-color: lightgreen;
   color: black;
   text-align: center;
-  height: 20px;
-  border-radius: 0 15px 15px 0;
+  
 }
 .form {
-  margin: 10px 0;
-  width: 100%;
+  margin: 10px auto;
+  width: 60%;
 }
 input {
-  padding: 10px;
-  margin: 10px auto;
-  font-size: 16px;
+  margin:10px 0;
   border: 1px solid #aaa;
+  width: 95%;
+  padding: 10px;
+  font-size: 16px;
+}
+select{
+  margin: 10px 0;
 }
 input::placeholder{
   text-align: end;
@@ -39,30 +46,45 @@ input::-webkit-input-placeholder{
 .form,.result {
   display: none;
 }
+.btn-wrapper{
+  text-align: center;
+}
 .btn-wrapper button {
-  margin: 5px;
+  margin: 8px;
+  width: 20%;
+  min-width: 75px;
+  padding: 5px 0;
+  background:  lightgreen;
+  border-radius: 5px;
   font-size: 16px;
+  outline: none;
+  cursor: pointer;
 }
 .result {
-  /* background: lightyellow; */
-  color: grey;
+  margin: auto;
+  width: 40%;
 }
 .result ul {
+  margin: 0;
+  padding:0;
   list-style-type: none;
 }
 .result ul li {
-  font-size: 16px;
+  border-bottom: dotted 1px lightgrey;
   padding: 10px 0;
-}
-.result ul li span{
-  display: inline-block;
-  margin-left: 15px;
-  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
 }
 .notice,.notice--select{
   display: none;
+  margin: 0 0 14px;
   font-style: italic;
   font-weight: 200;
   font-size: 12px;
   color: red;
+}
+h1{
+  text-align: center;
+  font-size: 26px;
 }
