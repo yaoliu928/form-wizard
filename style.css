@@ -14,8 +14,7 @@ body{
   padding: 5px 0;
   background-color: lightgreen;
   color: black;
-  text-align: center;
-  
+  text-align: center; 
 }
 .form {
   margin: 10px auto;
