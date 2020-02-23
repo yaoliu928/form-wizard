@@ -10,7 +10,8 @@
   "author": "Yao(Angela) Liu",
   "license": "ISC",
   "devDependencies": {
-    "jest": "^25.1.0"
+    "jest": "^25.1.0",
+    "puppeteer": "^2.1.1"
   },
   "dependencies": {}
 }
