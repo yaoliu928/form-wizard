@@ -17,7 +17,9 @@ function initial() {
   showForm(currentForm);
 }
 function showForm(num) {
-  forms[num].style.display = 'block';
+  if (forms[num]) {
+    forms[num].style.display = 'block';
+  };
   showButton(num);
   showProgressBar();
 }
@@ -76,25 +78,31 @@ function isTextValid(value) {
   return /^([a-zA-Z]+\s?)+$/.test(value);
 }
 function showButton(num) {
-  if (!num) {
+  if (!num && prevBtn) {
     prevBtn.style.display = 'none';
   } else {
-    prevBtn.style.display = 'inline';
+    if (prevBtn) {
+      prevBtn.style.display = 'inline';
+    }
   }
   if (num === forms.length - 1) {
     nextBtn.innerHTML = 'Submit';
   } else {
-    nextBtn.innerHTML = 'Next';
+    if (nextBtn) {
+      nextBtn.innerHTML = 'Next';
+    }
   }
 }
 function showProgressBar() {
-  if (!currentForm) {
+  if (!currentForm && completedBar) {
     completedBar.style.width = '5%';
     completedBar.innerHTML = '';
   } else {
-    const percent = Math.floor(currentForm * 100 / forms.length);
-    completedBar.style.width = `${percent}%`;
-    completedBar.innerHTML = `${percent}%`;
+    if (completedBar) {
+      const percent = Math.floor(currentForm * 100 / forms.length);
+      completedBar.style.width = `${percent}%`;
+      completedBar.innerHTML = `${percent}%`;
+    }
   }
 }
 function submitForm() {
@@ -114,8 +122,12 @@ function showResult() {
   completedBar.innerHTML = '100%';
 }
 function bindEvent() {
-  prevBtn.addEventListener('click', () => nextPrev(-1));
-  nextBtn.addEventListener('click', () => nextPrev(1));
+  if (prevBtn) {
+    prevBtn.addEventListener('click', () => nextPrev(-1));
+  };
+  if (nextBtn) {
+    nextBtn.addEventListener('click', () => nextPrev(1));
+  }
 }
 function unBindEvent() {
   prevBtn.removeEventListener('click', () => nextPrev(-1));
@@ -148,4 +160,8 @@ function checkSelectFormat(shownForm, valid) {
     }
   }
   return valid;
+}
+
+module.exports = {
+  isPostcodeValid,
 }
