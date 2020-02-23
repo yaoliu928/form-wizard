@@ -124,7 +124,6 @@ function checkSelectFormat(shownForm, valid) {
   }
   return valid;
 }
-
 function isFormatValid(input) {
   switch (input.name) {
     case 'email':
