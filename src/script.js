@@ -152,7 +152,6 @@ function isPhoneValid(value) {
   return phoneFormat.test(value);
 }
 function isPostcodeValid(value) {
-  console.log('postcode');
   return /^[0-9]{3,4}$/.test(value) && value >= 800 && value <= 7999;
 }
 function isStreetNumValid(value) {
