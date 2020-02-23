@@ -11,7 +11,6 @@ const resultItems = document.getElementsByClassName('result__item');
 const stTypeResult = document.querySelector('.result__item--select');
 
 initial();
-
 function initial() {
   bindEvent();
   showForm(currentForm);
@@ -40,42 +39,6 @@ function isFormValid() {
   const isInputValid = checkInputFormat(shownForm, valid);
   const isValid = checkSelectFormat(shownForm, isInputValid);
   return isValid;
-}
-function isFormatValid(input) {
-  switch (input.name) {
-    case 'email':
-      return isEmailValid(input.value);
-    case 'phone':
-      return isPhoneValid(input.value);
-    case 'postcode':
-      return isPostcodeValid(input.value);
-    case 'street-number':
-      return isStreetNumValid(input.value);
-    case 'first-name':
-    case 'last-name':
-    case 'street-name':
-    case 'suburb':
-      return isTextValid(input.value);
-    default:
-      return true;
-  }
-}
-function isEmailValid(value) {
-  const emailFormat = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-  return emailFormat.test(value);
-}
-function isPhoneValid(value) {
-  const phoneFormat = /^0[23478]\d{2}\s\d{3}\s\d{3}$/;
-  return phoneFormat.test(value);
-}
-function isPostcodeValid(value) {
-  return /^[0-9]{3,4}$/.test(value) && value >= 800 && value <= 7999;
-}
-function isStreetNumValid(value) {
-  return /^[1-9]+[0-9]*$/.test(value);
-}
-function isTextValid(value) {
-  return /^([a-zA-Z]+\s?)+$/.test(value);
 }
 function showButton(num) {
   if (!num && prevBtn) {
@@ -162,6 +125,48 @@ function checkSelectFormat(shownForm, valid) {
   return valid;
 }
 
+function isFormatValid(input) {
+  switch (input.name) {
+    case 'email':
+      return isEmailValid(input.value);
+    case 'phone':
+      return isPhoneValid(input.value);
+    case 'postcode':
+      return isPostcodeValid(input.value);
+    case 'street-number':
+      return isStreetNumValid(input.value);
+    case 'first-name':
+    case 'last-name':
+    case 'street-name':
+    case 'suburb':
+      return isTextValid(input.value);
+    default:
+      return true;
+  }
+}
+function isEmailValid(value) {
+  const emailFormat = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+  return emailFormat.test(value);
+}
+function isPhoneValid(value) {
+  const phoneFormat = /^0[23478]\d{2}\s\d{3}\s\d{3}$/;
+  return phoneFormat.test(value);
+}
+function isPostcodeValid(value) {
+  console.log('postcode');
+  return /^[0-9]{3,4}$/.test(value) && value >= 800 && value <= 7999;
+}
+function isStreetNumValid(value) {
+  return /^[1-9]+[0-9]*$/.test(value);
+}
+function isTextValid(value) {
+  return /^([a-zA-Z]+\s?)+$/.test(value);
+}
 module.exports = {
+  isFormatValid,
+  isEmailValid,
+  isPhoneValid,
   isPostcodeValid,
+  isStreetNumValid,
+  isTextValid,
 }
