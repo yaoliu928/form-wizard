@@ -59,4 +59,4 @@ test('Fill and submit the form successfully', async () => {
     let successResult = await page.waitForSelector('div.result');
     expect(successResult).toBeDefined();
     await browser.close();
-}, 20000);
+}, 30000);
