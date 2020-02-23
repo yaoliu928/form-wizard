@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1582422808009" clover="3.2.0">
-  <project timestamp="1582422808009" name="All files">
+<coverage generated="1582423247914" clover="3.2.0">
+  <project timestamp="1582423247915" name="All files">
     <metrics statements="95" coveredstatements="27" conditionals="46" coveredconditionals="16" methods="22" coveredmethods="6" elements="163" coveredelements="49" complexity="0" loc="95" ncloc="95" packages="1" files="1" classes="1"/>
     <file name="script.js" path="/Users/yao/Documents/code/codetest/ctm/form-wizard/script.js">
       <metrics statements="95" coveredstatements="27" conditionals="46" coveredconditionals="16" methods="22" coveredmethods="6"/>
