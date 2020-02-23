@@ -175,7 +175,7 @@ function isTextValid(value) {
 }
 
 /*******************************************
-/     bindings
+/     Bindings
 /******************************************/
 function bindEvent() {
   if (prevBtn) {

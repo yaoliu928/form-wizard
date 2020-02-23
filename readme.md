@@ -1,9 +1,11 @@
 ## Form Wizard
+Please run index.html to run the app.
 
-### `npm run jest`
-Use the command above to run the test.
+#### `npm install`
+#### `npm run jest`
+Please install Jest and run the test.
 
-### source code
+#### source code
 https://github.com/yaoliu928/form-wizard
-### deploy link
+#### deploy link
 https://yaoliu928.github.io/form-wizard/
