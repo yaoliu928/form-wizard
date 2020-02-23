@@ -3,7 +3,7 @@ Please run index.html to run the app.
 
 #### `npm install`
 #### `npm run jest`
-Please install Jest and run the test.
+Please install packages and run the test.
 
 #### source code
 https://github.com/yaoliu928/form-wizard
