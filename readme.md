@@ -2,7 +2,7 @@
 Please run index.html to run the app.
 
 #### `npm install`
-#### `npm run jest`
+#### `npm run test`
 Please install packages and run the test.
 
 #### source code
